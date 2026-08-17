@@ -37,7 +37,7 @@ jobs:
         with:
           project_id: visualismusic-publisher
           workload_identity_provider: projects/223431871745/locations/global/workloadIdentityPools/github-publisher/providers/github
-          service_account: visualismusic-github-publisher@visualismusic-publisher.iam.gserviceaccount.com
+          service_account: visualismusic-media-stager@visualismusic-publisher.iam.gserviceaccount.com
           create_credentials_file: true
 
       - name: Set up Python
