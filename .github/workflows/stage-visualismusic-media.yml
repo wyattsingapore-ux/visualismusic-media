@@ -30,7 +30,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Authenticate to Google with GitHub OIDC
         uses: google-github-actions/auth@v3
@@ -41,7 +41,7 @@ jobs:
           create_credentials_file: true
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
