@@ -1,6 +1,8 @@
 name: Stage VisualisMusic Instagram Media
 
 on:
+  push:
+    branches: [main]
   issues:
     types: [opened]
   workflow_dispatch:
@@ -16,12 +18,13 @@ permissions:
   issues: write
 
 concurrency:
-  group: visualismusic-media-${{ github.event_name == 'issues' && github.event.issue.number || inputs.run_date || 'manual' }}
+  group: visualismusic-media-${{ github.event_name == 'issues' && github.event.issue.number || inputs.run_date || github.run_id }}
   cancel-in-progress: false
 
 jobs:
   stage:
     if: >-
+      github.event_name == 'push' ||
       github.event_name == 'workflow_dispatch' ||
       (github.event.issue.user.login == github.repository_owner &&
        startsWith(github.event.issue.title, '[VisualisMusic Stage]'))
