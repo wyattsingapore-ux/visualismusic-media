@@ -63,7 +63,7 @@ jobs:
           import google.auth
           from google.auth.transport.requests import AuthorizedSession
 
-          CALENDAR_ID = "1s0T3EFdpIsMCOTVX5U01FcRx5-Qox542"
+          CALENDAR_ID = "1vvN43nMUj29LZlHt23uVrchLHVLYjPNd"
           VIDEO_FOLDER_ID = "1rmF_FUPLry0v2ArUC60I3ns0YdlUaHHE"
           FILES = "https://www.googleapis.com/drive/v3/files"
           scope = "https://www.googleapis.com/auth/drive.readonly"
