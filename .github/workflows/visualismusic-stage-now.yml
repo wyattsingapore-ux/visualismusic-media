@@ -38,7 +38,7 @@ jobs:
       - name: Install Drive client
         run: python -m pip install 'google-auth>=2.35,<3' 'requests>=2.32,<3'
 
-      - name: Download existing Yellow teaser from Drive
+      - name: Download existing Photograph teaser from Drive
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -46,7 +46,7 @@ jobs:
           from google.auth.transport.requests import AuthorizedSession
 
           FOLDER = "1rmF_FUPLry0v2ArUC60I3ns0YdlUaHHE"
-          NAME = "yellow-teaser.mp4"
+          NAME = "photograph-teaser.mp4"
           FILES = "https://www.googleapis.com/drive/v3/files"
           creds, _ = google.auth.default(scopes=["https://www.googleapis.com/auth/drive.readonly"])
           session = AuthorizedSession(creds)
@@ -73,11 +73,11 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh release view media >/dev/null 2>&1 || gh release create media --title "VisualisMusic media" --notes "Public media staging for platform APIs."
-          gh release upload media /tmp/yellow-teaser.mp4 --clobber
+          gh release upload media /tmp/photograph-teaser.mp4 --clobber
 
       - name: Verify public teaser URL
         run: |
-          url="https://github.com/${{ github.repository }}/releases/download/media/yellow-teaser.mp4"
+          url="https://github.com/${{ github.repository }}/releases/download/media/photograph-teaser.mp4"
           for attempt in {1..20}; do
             if curl -fsIL "$url" >/dev/null; then
               echo "PUBLIC_MEDIA_OK $url"
