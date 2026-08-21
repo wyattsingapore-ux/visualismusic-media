@@ -1,4 +1,5 @@
 name: Stage VisualisMusic Instagram Media
+run-name: Stage VisualisMusic media (${{ github.event_name }})
 
 on:
   push:
@@ -26,8 +27,7 @@ jobs:
     if: >-
       github.event_name == 'push' ||
       github.event_name == 'workflow_dispatch' ||
-      (github.event.issue.user.login == github.repository_owner &&
-       startsWith(github.event.issue.title, '[VisualisMusic Stage]'))
+      startsWith(github.event.issue.title, '[VisualisMusic Stage]')
     runs-on: ubuntu-latest
     timeout-minutes: 20
 
