@@ -1,0 +1,2 @@
+VisualisMusic staging request for 2026-09-09.
+Publishing-only scope; stage existing teaser from canonical Drive media.
